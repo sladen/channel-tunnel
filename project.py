@@ -1,12 +1,18 @@
 #!/usr/bin/env python
-# based on http://www.movable-type.co.uk/scripts/latlong.html#destPoint
+# Paul Sladen 2013-05-12
 import math
-# Channel Tunnel Adit A2 Top of Ramp
+# Korittke, N.; "Influence of horizontal Refraction on the traverse Measurements
+# in Tunnels with Small Diameters"
+# 
+# Institute for Deposits and Surveying, DMT, Bochum, W-Germany
+# http://www.slac.stanford.edu/econf/C9009106/papers/023.PDF
 earth_radius = 6378137
 bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
+        # WGS84, mangled to makes it work
         'initial': ('A2/1', 51.10595, 1.27901),
         'data': (
-        ("A2/2",49.4450,0.372),
+        # Probably Channel Tunnel Grid
+        ("A2/2",49.4450,0.372), 
         ("MTS2",56.5071,0.499),
         ("MTS1",122.8067,0.655),
         ("17",119.81560,1.042),
@@ -41,8 +47,10 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         ("3360",131.6781,6.487)
         )},
       'Great Britain 1989-12 Centre-Line-Traverse': {
+        # WGS84, via Bing imagery/OSM mapping
         'initial': ('A2T', 51.10654, 1.27833),
         'data': (
+        # Probably Channel Tunnel Grid
         ("A2M",59.9911,0.496),
         ("ENT",120.5663,0.762),
         ("T5",120.7411,1.031),
@@ -117,7 +125,9 @@ for name, survey in bt.items():
     for ring, bearing, traverse in bearing_traverse:
         brng = math.radians(bearing)
         d = 1000 * (traverse - already_traversed)
-
+        # based on http://www.movable-type.co.uk/scripts/latlong.html#destPoint
+        # the original fails to mention that you need to work in radians everywhere
+        # which is obvious, I guess
         lat2 = math.asin( math.sin(lat1)*math.cos(d/R) + math.cos(lat1)*math.sin(d/R)*math.cos(brng) )
         lon2 = lon1 + math.atan2(math.sin(brng)*math.sin(d/R)*math.cos(lat1), math.cos(d/R)-math.sin(lat1)*math.sin(lat2));
 
