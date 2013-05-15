@@ -8,13 +8,14 @@ import math
 # http://www.slac.stanford.edu/econf/C9009106/papers/023.PDF
 earth_radius = 6378137
 bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
-        # WGS84, mangled to makes it work
-        'initial': ('A2/1', 51.10595, 1.27901),
+        # WGS84, corner of top of ramp, from Bing imagery/OSM mapping
+        'initial': ('A2/1', 51.106436,1.2782455),
         'data': (
         # Probably Channel Tunnel Grid
+        # Each ring-number is 1.5-metres in length
         ("A2/2",49.4450,0.372), 
-        ("MTS2",56.5071,0.499),
-        ("MTS1",122.8067,0.655),
+        ("MTS2",56.5071,0.499), # Base of Adit A2
+        ("MTS1",122.8067,0.655),  # Base of Adit A1
         ("17",119.81560,1.042),
         ("203",121.4786,1.302),
         ("345",120.8653,1.516),
@@ -47,11 +48,12 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         ("3360",131.6781,6.487)
         )},
       'Great Britain 1989-12 Centre-Line-Traverse': {
-        # WGS84, via Bing imagery/OSM mapping
-        'initial': ('A2T', 51.10654, 1.27833),
+        # WGS84, centre of top of ramp via Bing imagery/OSM mapping
+        'initial': ('A2T', 51.106446,1.2781995),
         'data': (
         # Probably Channel Tunnel Grid
-        ("A2M",59.9911,0.496),
+        # Each ring-number is 1.5-metres in length
+        ("A2M",50.9911,0.496),
         ("ENT",120.5663,0.762),
         ("T5",120.7411,1.031),
         ("171",120.4814,1.255),
@@ -117,13 +119,14 @@ for name, survey in bt.items():
     initial_latlon = survey['initial'][1:3]
     initial_name = survey['initial'][0]
     year_month = name[name.index('1989'):name.index('1989')+7]
-    lat1, lon1 = map(math.radians,initial_latlon)
+    lat1, lon1 = math.radians(initial_latlon[0]), math.radians(initial_latlon[1])
     R = earth_radius
     path = [(initial_latlon[0], initial_latlon[1], initial_name)]
     output += """<wpt lat="%f" lon="%f"><name>%s</name></wpt>\n""" % path[-1]
     already_traversed = 0
     for ring, bearing, traverse in bearing_traverse:
-        brng = math.radians(bearing)
+        # surveyors use gradians (gon) 
+        brng = math.radians(bearing*360/400)
         d = 1000 * (traverse - already_traversed)
         # based on http://www.movable-type.co.uk/scripts/latlong.html#destPoint
         # the original fails to mention that you need to work in radians everywhere
