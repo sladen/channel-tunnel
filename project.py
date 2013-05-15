@@ -9,9 +9,8 @@ import math
 earth_radius = 6378137
 bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         # WGS84, corner of top of ramp, from Bing imagery/OSM mapping
-        'initial': ('A2/1', 51.106436,1.2782455),
+        'initial': ('A2/1', 51.1064385,1.2782458),
         'data': (
-        # Probably Channel Tunnel Grid
         # Each ring-number is 1.5-metres in length
         ("A2/2",49.4450,0.372), 
         ("MTS2",56.5071,0.499), # Base of Adit A2
@@ -49,9 +48,8 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         )},
       'Great Britain 1989-12 Centre-Line-Traverse': {
         # WGS84, centre of top of ramp via Bing imagery/OSM mapping
-        'initial': ('A2T', 51.106446,1.2781995),
+        'initial': ('A2T', 51.106446,1.278199),
         'data': (
-        # Probably Channel Tunnel Grid
         # Each ring-number is 1.5-metres in length
         ("A2M",50.9911,0.496),
         ("ENT",120.5663,0.762),
