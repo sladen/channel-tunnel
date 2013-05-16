@@ -110,7 +110,27 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
 }
 
 output = """<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.0">\n"""
+<gpx version="1.0">
+<!--
+     Paul Sladen, May 2013, for OpenStreetMap reference purposes
+
+     Projected (using a simple spheroid model) into WGS84 from two
+     estimated starting points at the top of Shakespeare Cliff Adit A2
+     and then integrating over the two sets Bearing+Distance pairs
+     surveyed in 1989, and published in:
+
+     Korittke, Norbert (1989)
+     "Influence of horizontal Refraction on the traverse Measurements
+     in Tunnels with Small Diameters"
+     Deutsche Montan Technologie/Institute for Deposits and Surveying, Bochum, W-Germany
+     http://www.slac.stanford.edu/econf/C9009106/papers/023.PDF p.13,14
+
+     Tunnel chainages for the waypoint markers have been auto-generated from the
+     stated marine service tunnel bore ring-number using an estimate of:
+
+     chainage 19.841 + 0.0015062 * (ring_count - 1)
+-->\n"""
+
 number = 1
 for name, survey in bt.items():
     bearing_traverse = survey['data']
@@ -131,7 +151,11 @@ for name, survey in bt.items():
         # which is obvious, I guess
         lat2 = math.asin( math.sin(lat1)*math.cos(d/R) + math.cos(lat1)*math.sin(d/R)*math.cos(brng) )
         lon2 = lon1 + math.atan2(math.sin(brng)*math.sin(d/R)*math.cos(lat1), math.cos(d/R)-math.sin(lat1)*math.sin(lat2));
-
+        try:
+            chainage = str((int(ring)-1)*0.0015062+19.841)[:6].replace('.','+')
+            ring = ring + ' Ch' + chainage
+        except:
+            pass
         path.append((math.degrees(lat2),math.degrees(lon2),ring))
         already_traversed = traverse
         lat1, lon1 = lat2, lon2
