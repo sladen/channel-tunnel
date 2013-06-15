@@ -9,10 +9,10 @@ import math
 earth_radius = 6378137
 bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         # WGS84, corner of top of ramp, from Bing imagery/OSM mapping
-        'initial': ('A2/1', 51.1064385,1.2782458),
+        'initial': ('A2/1', 51.1064385,1.2782458, 0.0),
         'data': (
         # Each ring-number is 1.5-metres in length
-        ("A2/2",49.4450,0.372), 
+        ("A2/2",49.4450,0.372),
         ("MTS2",56.5071,0.499), # Base of Adit A2
         ("MTS1",122.8067,0.655),  # Base of Adit A1
         ("17",119.81560,1.042),
@@ -48,7 +48,7 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         )},
       'Great Britain 1989-12 Centre-Line-Traverse': {
         # WGS84, centre of top of ramp via Bing imagery/OSM mapping
-        'initial': ('A2T', 51.106446,1.278199),
+        'initial': ('A2T', 51.106446,1.278199, 0.0),
         'data': (
         # Each ring-number is 1.5-metres in length
         ("A2M",50.9911,0.496),
@@ -105,8 +105,52 @@ bt = {'Great Britain 1989-03 Zig-Zag-Traverse': {
         ("8050",147.8313,12.913),
         ("8222",147.8339,13.172),
         ("8396",147.8538,13.433),
-        ("8544",147.8352,13.656))
-        }
+        ("8544",147.8352,13.656)
+        )},
+        'Grossbritannien 1990-09 Messung durch die Tunnelmitte': {
+        # WGS84, Calculated location of ring 7392 from integrating 1989 traverse
+        'initial': ('7392', 51.059581, 1.425093, 12.115),
+        'data': (
+        # Each ring-number is 1.5-metres in length
+        # but the cumulative distance is ~464 metres offset compared to the first two traverses
+        # Norbert Korittke 1997 Doctorate Thesis, p.131
+        ("7574",147.8281,12.388),
+        ("7725",147.8458,12.615),
+        ("7903",147.8593,12.883),
+        ("8050",147.8311,13.104),
+        ("8222",147.8336,13.363),
+        ("8396",147.8533,13.624),
+        ("8544",147.8345,13.846),
+        ("8718",147.8490,14.108),
+        ("8927",147.8472,14.422),
+        ("9146",147.8659,14.751),
+        ("9306",148.0512,14.992),
+        ("9453",149.8011,15.213),
+        ("9603",151.8954,15.438),
+        ("9742",154.0014,15.648),
+        ("9890",155.8814,15.870),
+        ("10069",156.3828,16.140),
+        ("10221",156.3567,16.369),
+        ("10381",156.3879,16.609),
+        ("10521",155.3909,16.820),
+        ("10658",153.1317,17.026),
+        ("10802",150.8298,17.243),
+        ("10952",148.3701,17.469),
+        ("11102",145.8826,17.695),
+        ("11250",143.3459,17.918),
+        ("11396",141.0257,18.138),
+        ("11544",138.6272,18.361),
+        ("11681",136.3778,18.567),
+        ("11822",134.1410,18.780),
+        ("11948",132.0165,18.969),
+        ("12143",130.0999,19.264),
+        ("12341",129.8868,19.561),
+        ("12548",129.8451,19.874),
+        ("12748",129.8862,20.174),
+        ("12950",129.8583,20.479),
+        ("13146",129.8583,20.774),
+        ("13345",129.8652,21.073)
+        )}
 }
 
 output = """<?xml version="1.0" encoding="UTF-8"?>
@@ -136,12 +180,13 @@ for name, survey in bt.items():
     bearing_traverse = survey['data']
     initial_latlon = survey['initial'][1:3]
     initial_name = survey['initial'][0]
-    year_month = name[name.index('1989'):name.index('1989')+7]
+    year_month = name[name.index(' 19')+1:name.index(' 19')+7+1]
     lat1, lon1 = math.radians(initial_latlon[0]), math.radians(initial_latlon[1])
     R = earth_radius
     path = [(initial_latlon[0], initial_latlon[1], initial_name)]
     output += """<wpt lat="%f" lon="%f"><name>%s</name></wpt>\n""" % path[-1]
-    already_traversed = 0
+    already_traversed = survey['initial'][3]
+    #assert already_traversed == 0.0
     for ring, bearing, traverse in bearing_traverse:
         # surveyors use gradians (gon) 
         brng = math.radians(bearing*360/400)
