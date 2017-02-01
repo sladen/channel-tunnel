@@ -1,0 +1,34 @@
+Tunnels of knowledge: mapping today's "secrets" from yesterday's
+public maps (and improving public safety)
+
+Everyday millions of people travel by U-Bahn, Metros, subways and the
+Tube.  Most travel in a blinded fashion, steered through a
+brightly-lit linear maze, and unaware of where they are. Modern
+society often choses actively or passively to restrict maps of
+underground infrastructure, even when it is open for all. This
+is in contrast to the social dynamics of the early 1900s, when
+engineers were enthusiastic to share and the public eager to absorb.
+
+OpenStreetMap is a worldwide geo-database containing a contributed and
+crowdsourced vector dataset along with textual metadata, making it one
+of the largest datasets available for research and analysis.  For
+citizens involved with mapping transport and underground metro
+systems, turning to old out-of-copyright maps allows obtaining and
+rescuing information otherwise unavailable in the modern world. The
+presentation will show mapping of features from the complex London
+Underground system using old parliamentary maps as a basis; and
+efforts for precision mapping of the Channel Tunnel using custom
+software written to reproject numerical tables of engineering
+azimuth/distance survey data.
+
+Following incidents in both London and the Channel Tunnel, official
+reports from the public humanities investigating the handling of the
+incidents have highlighted lack of available information as a
+significantly contributing factor.  Yet, other players continue to
+advocate for non-publication in digital media form.  Using historical
+maps via digitisation, a [citizen] transport user can proactively
+enact official recommendations to improve public safety by
+dissemination of information.  For myself, as an OpenStreetMap
+practitioner with a background in programming and an active interest
+in open knowledge, the possibility of citizen science being able to
+have direct agency through the use of old maps is intriguing.
