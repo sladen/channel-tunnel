@@ -1,6 +1,16 @@
 Tunnels of knowledge: mapping today's "secrets" from yesterday's
 public maps (and improving public safety)
 
+citizen science
+crowdsourcing
+public safety
+OpenStreetMap
+public transport
+underground infrastructure
+tunnels
+London Underground
+Channel Tunnel
+
 Everyday millions of people travel by U-Bahn, Metros, subways and the
 Tube.  Most travel in a blinded fashion, steered through a
 brightly-lit linear maze, and unaware of where they are. Modern
@@ -24,7 +34,7 @@ azimuth/distance survey data.
 Following incidents in both London and the Channel Tunnel, official
 reports from the public humanities investigating the handling of the
 incidents have highlighted lack of available information as a
-significantly contributing factor.  Yet, other players continue to
+significant contributing factor.  Yet, other players continue to
 advocate for non-publication in digital media form.  Using historical
 maps via digitisation, a [citizen] transport user can proactively
 enact official recommendations to improve public safety by
