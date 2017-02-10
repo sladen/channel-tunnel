@@ -14,19 +14,13 @@
   pdfcreationdate=D:20170201101000+00'00',
   pdfencoding=unicode
 }
+\usepackage[all]{hypcap}
 \usepackage[pdftex]{graphicx}
 %\usepackage[cmex10]{amsmath}
 \usepackage[noadjust]{cite}
 \usepackage{url}
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{filecontents}
-\usepackage{multicol}
-\usepackage{etoolbox}
-
-\patchcmd{\thebibliography}{\list\begin{multicols}{2}}
-    {\begin{multicols}{2}[\list\begin{multicols}{2}]}{}{}
-
-\patchcmd{\endthebibliography}{\endlist}{\endlist\end{multicols}}{}{}
 
 \begin{filecontents}{sladen-eol2017-tunnels2.bib}
 @IEEEtranBSTCTL{IEEEtweaked:BSTcontrol,
@@ -241,7 +235,7 @@ practitioner with a background in programming and an active interest
 in open knowledge, the possibility of citizen science being able to
 have direct agency through the use of old maps is intriguing.
 
-\subsection{London Underground}
+\subsection{London Underground}\vspace{-0.2em}
 
 During the 2010s a member of London Underground's Infrastructure
 Protection team began research for their own MA and PhD theses.  The
@@ -255,17 +249,17 @@ tainting OpenStreetMap.  During one comparison a substantial difference was obse
 alignment on OpenStreetMap was correct, and it was the positioning
 on London Underground's internal maps that were out-of-date.
 
-In 2015 Transport for London released additional quasi-3D (axonometric) diagrams of
+In 2015 Transport for London released additional quasi-{\small 3D} (axonometric) diagrams of
 the internal structure of most of the underground stations.\cite{foi-2015}
 This caused additional information to fall into the public {\it knowledge}
 domain---but not necessarily into the public domain of (legally usable) information and
 data available for freely-using.  OpenStreetMap must therefore still
-turn to information that is truely out-of-copyright.  Many metro and
-Underground railways were constructed in the 1900s--1920s meaning that
-these original construction plans have fallen out of copyright and can be safely used.\\
+turn to information that is truely out-of-copyright.\hfill{}\hyperref[fig:south-ken-bends]{[Fig.\,1]}\\
+Luckily, many metro and Underground railways were constructed in the
+1900s--1920s meaning that these original construction plans have
+fallen out of copyright and can be safely used.
 
-\vspace{-3em}
-\subsection{Channel Tunnel}
+\vspace{-1.7em}\subsection{Channel Tunnel}\vspace{-0.2em}
 
 This international undersea tunnel was designed in the 1980s,
 privately constructed and opened in the early-1990s.  Plans and maps
@@ -275,16 +269,16 @@ been applied.\cite{osm-wiki-chunnel}\nocite{sladen-sotm2013} Academic publicatio
 survey traverses performed using gyrotheodolite.\cite{korittke-1997}
 The first along the tunnel walls, and the second along the centre-line
 undertaken to avoid the newly-observed problem of horizontal
-refraction.\cite{korittke-1989} In the demonstration we confirm the
+refraction.\cite{korittke-1989}\hspace{3em} In the demonstration we confirm the
 correct re-projection into WGS84 of the two surveys by observing the
-first traverse zig-zagging around the later centre-line survey.
+first traverse zig-zagging around the later centre-line survey.\hfill\hyperref[fig:osm-chunnel-traverse]{[Fig.\,2]}
 
 \begin{figure*}[!lt]
   \centering
   \includegraphics[width=15.1cm]{reverse-curves-cropped}
   \vspace{-0.5em}
   \caption{London Underground (1897 submitted plans) later the Piccadilly line.  Development of ``South Kensingtons Bends'' double-S curves under highway.}
-  \label{south-ken-bends}
+  \label{fig:south-ken-bends}
 \end{figure*}
 \vspace{-1em}
 \begin{figure*}[!lt]
@@ -292,7 +286,7 @@ first traverse zig-zagging around the later centre-line survey.
   \includegraphics[width=15.1cm]{shakespeare-cliff-cropped}
   \vspace{-0.5em}
   \caption{Channel Tunnel: Shakespeare Cliff, tunnels close to Dover on the British coast (OpenStreetMap, \textsc{cc-by-sa}). 1989/1990 survey traverses in red.}
-  \label{osm-channel-tunnel-traverse}
+  \label{fig:osm-chunnel-traverse}
 \end{figure*}
 
 %\IEEEtriggeratref{6}
