@@ -178,10 +178,11 @@ steps to publicise this information,''},
 \renewcommand{\citedash}{--} 
 \begin{document}
 \bstctlcite{IEEEtweaked:BSTcontrol}
+\vspace{-1em}
 \title{\hphantom{:}Tunnels of Knowledge:\\
-%\vspace{-0.0em}
-{\Large \hphantom{'}Mapping today's `secrets'\\\vspace{-0.6em} from Yesterday's public maps}\\
-{\large *\,(and improving public safety)\hphantom{\,*}}}
+\vspace{-0.6em}
+{\Large \hphantom{'}Mapping today's `secrets'\\\vspace{-0.8em} from Yesterday's public maps}\\
+\vspace{-0.2em}{\large *\,(and improving public safety)\hphantom{\,*}}}
 \author{%
   \texorpdfstring{%
     \IEEEauthorblockN{Paul Sladen}
@@ -203,6 +204,7 @@ Underground infrastructure.
 
 \IEEEpeerreviewmaketitle
 
+%\vspace{1.25em}
 \section{Introduction}
 Everyday millions of people travel by U-Bahn, Metros, subways and the
 Tube. Most travel in a blinded fashion, steered through a brightly-lit
@@ -222,10 +224,13 @@ presentation will show mapping of features from the complex London
 Underground system using old parliamentary maps as a basis; and
 efforts for precision mapping of the Channel Tunnel using custom
 software written to reproject numerical tables of engineering
-azimuth/distance survey data.
+survey data---where existing libre software where existing software
+for projecting absolute azimuth/distance into WGS84 was not readily available.
 
+\vspace{0.4em}
+%\vspace{1em}
 \section{Tunnelling towards openness}
-
+%\vspace{0.5em}
 Following incidents in both London and the Channel~Tunnel, official
 reports from the public humanities investigating the handling of the
 incidents have highlighted lack of available information as a
@@ -237,7 +242,7 @@ recommendations to improve public safety by dissemination of
 information. For myself, as an OpenStreetMap
 practitioner with a background in programming and an active interest
 in open knowledge, the possibility of citizen science being able to
-have direct agency through the use of old maps is intriguing.
+have direct agency through the use of old maps is intriguing.\par\vspace*{\fill}
 
 \subsection{London Underground}\vspace{-0.2em}
 
@@ -263,21 +268,22 @@ Luckily, many of the metro and underground railways were constructed in the
 1900s--1920s meaning original construction plans have
 fallen out of copyright and can be safely used as a research base for digital mapping.
 
-%\vspace{-1.7em}%
+%\vspace{-0.7em}%
 \subsection{Channel Tunnel}%
 %\vspace{-0.2em}
 
 This international undersea tunnel was designed in the 1980s,
 privately constructed, and opened in the early-1990s.  Plans and maps
 remain in copyright, split between Eurotunnel, and the various private
-companies.  An entirely different approach using numerical data has
-been applied~\cite{osm-wiki-chunnel,sladen-sotm2013}. Academic publications cover two
-survey traverses performed using gyrotheodolite~\cite{korittke-1997}.
-The first along the tunnel walls, and the second along the centre-line
-undertaken to avoid the newly-observed problem of horizontal
-refraction~\cite{korittke-1989}.\hspace{3em} In the demonstration we confirm the
-correct re-projection into WGS84 of the two surveys by observing the
-first traverse zig-zagging around the subsequent centre-line survey.\hfill\hyperref[fig:osm-chunnel-traverse]{[Fig.\,2]}
+construction companies.  An entirely different approach has
+been applied, tabulating individually published numerical
+constraints (spacing, lengths, radii) to recreate a virtual survey.~\cite{osm-wiki-chunnel,sladen-sotm2013}.
+Publications cover
+survey traverses performed using gyrotheodolite, first along the tunnel walls, then secondly along the centre-line,
+to avoid a newly-observed problem of horizontal
+refraction caused by temperature gradients in the air at the tunnel walls~\cite{korittke-1997,korittke-1989}.
+We confirm correct re-projection into WGS84 of the surveys by observing
+one zig-zagging around other traverse.~\hfill\hyperref[fig:osm-chunnel-traverse]{[Fig.\,2]}\par\vspace*{\fill}
 
 \begin{figure*}[!lt]
   \centering
