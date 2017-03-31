@@ -19,13 +19,14 @@
 \usepackage[pdftex]{graphicx}
 %\usepackage[cmex10]{amsmath}
 \usepackage[noadjust]{cite}
+\usepackage{cite}
 \usepackage{url}
 \hyphenation{op-tical net-works semi-conduc-tor}
 \usepackage{filecontents}
 
 \begin{filecontents}{sladen-eol2017-tunnels2.bib}
 @IEEEtranBSTCTL{IEEEtweaked:BSTcontrol,
-  CTLdash_repeated_names = "no"
+  CTLdash_repeated_names = "no",
 }
 
 @article{sladen-sotm2013,
@@ -174,6 +175,7 @@ steps to publicise this information,''},
   ISBN = {3-926146-09-5},
 }
 \end{filecontents}
+\renewcommand{\citedash}{--} 
 \begin{document}
 \bstctlcite{IEEEtweaked:BSTcontrol}
 \title{\hphantom{:}Tunnels of Knowledge:\\
@@ -183,7 +185,7 @@ steps to publicise this information,''},
 \author{%
   \texorpdfstring{%
     \IEEEauthorblockN{Paul Sladen}
-    \IEEEauthorblockA{Astronomical Calculation Institute (ZAH--ARI)\\University of Heidelberg\\\texttt{sladen@ari.uni-heidelberg.de}}
+    \IEEEauthorblockA{Astronomical Calculation Institute (ARI--ZAH), University of Heidelberg\\\small\texttt{sladen@ari.uni-heidelberg.de}}
 }{Paul Sladen}}
 \maketitle
 
@@ -227,7 +229,7 @@ azimuth/distance survey data.
 Following incidents in both London and the Channel~Tunnel, official
 reports from the public humanities investigating the handling of the
 incidents have highlighted lack of available information as a
-significant contributing factor~\cite{riab-2010,riab-2013}. Yet,
+significant contributing factor~\cite{riab-2010,riab-2013,openstreetmap,foi-2011}. Yet,
 other players continue to advocate for non-publication in digital
 media form~\cite{foi-2011}. Using historical maps via digitisation, a
 [citizen] transport user can proactively enact official
@@ -261,7 +263,9 @@ Luckily, many of the metro and underground railways were constructed in the
 1900s--1920s meaning original construction plans have
 fallen out of copyright and can be safely used as a research base for digital mapping.
 
-\vspace{-1.7em}\subsection{Channel Tunnel}\vspace{-0.2em}
+%\vspace{-1.7em}%
+\subsection{Channel Tunnel}%
+%\vspace{-0.2em}
 
 This international undersea tunnel was designed in the 1980s,
 privately constructed, and opened in the early-1990s.  Plans and maps
